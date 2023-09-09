@@ -1,0 +1,8 @@
+# MacOS
+*.DS_Store
+
+# DataSpell or eqv.
+*.idea/
+
+# Raw Data
+*/data/
