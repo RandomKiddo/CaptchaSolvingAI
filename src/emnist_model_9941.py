@@ -14,7 +14,6 @@ from keras.models import Sequential
 def load_data() -> tuple[Any, Any]:
     """
     Loads the EMNIST data
-
     :return: Train and test datasets
     """
 
@@ -25,14 +24,13 @@ def load_data() -> tuple[Any, Any]:
     def normalize(image: Any, label: Any) -> tuple[Any, Any]:
         """
         Normalize a given image
-
         :param image: The given image
         :param label: The label to the image
         :return: The normalized version
         """
-        
+
         return tf.cast(image, tf.float32) / 255., label
-    
+
     train_ds = train_ds.map(normalize, num_parallel_calls=tf.data.AUTOTUNE).cache().shuffle(
         info.splits['train'].num_examples).batch(32).prefetch(tf.data.AUTOTUNE)
     test_ds = test_ds.map(normalize, num_parallel_calls=tf.data.AUTOTUNE).batch(32).cache().prefetch(tf.data.AUTOTUNE)
@@ -43,7 +41,6 @@ def load_data() -> tuple[Any, Any]:
 def create_model(verbose: bool = False) -> None:
     """
     Creates the tensorflow model
-
     :return: None
     """
 

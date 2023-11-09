@@ -6,3 +6,6 @@
 
 # Raw Data
 */data/
+
+# Models
+/src/models
